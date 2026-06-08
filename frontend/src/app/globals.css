@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0c0a09;
+  --foreground: #e4e4e7;
+  --accent: #c5a880;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-serif: var(--font-cormorant);
+  --font-script: var(--font-pinyon);
+}
+
+/* Custom utility for subtle technical blueprint gridlines */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(197, 168, 128, 0.012) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 168, 128, 0.012) 1px, transparent 1px);
+}
+
+/* Custom utility to hide default scrollbars */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Custom vibration animation for plucking instrument strings */
+@keyframes string-vibrate {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(-5px);
+  }
+  30% {
+    transform: translateY(4px);
+  }
+  45% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(2px);
+  }
+  75% {
+    transform: translateY(-1px);
+  }
+  90% {
+    transform: translateY(0.5px);
+  }
+}
+
+.animate-vibrate {
+  animation: string-vibrate 0.7s ease-in-out;
+}
+
+
+
+/* Custom animations for Gibson-style hotspots */
+@keyframes hotspot-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(197, 168, 128, 0.4), inset 0 0 0 1px rgba(197, 168, 128, 0.3);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 8px 4px rgba(197, 168, 128, 0.3), inset 0 0 0 2px rgba(197, 168, 128, 0.6);
+    opacity: 1;
+  }
+}
+
+@keyframes laser-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-hotspot {
+  animation: hotspot-pulse 2s infinite ease-in-out;
+}
+
+.animate-laser {
+  animation: laser-scan 4s infinite linear;
+}
+
+/* Base custom resets */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono), monospace;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom thin scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a880;
+}
+
+
+
