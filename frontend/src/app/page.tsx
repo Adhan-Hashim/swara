@@ -707,7 +707,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#0c0a09] bg-grid text-[#e4e4e7] flex flex-col font-sans uppercase relative selection:bg-[#c5a880]/20 scroll-smooth">
       
       {/* 0. Minimal Atmospheric Landing Screen */}
-      <section className="w-full h-screen relative flex flex-col justify-between items-center py-10 px-12 overflow-hidden bg-[#0c0a09] select-none">
+      <section className="w-full h-screen relative flex flex-col justify-between items-center py-10 px-4 sm:px-8 md:px-12 overflow-hidden bg-[#0c0a09] select-none">
         
         {/* Background Image with sepia and smoky overlay */}
         <div 
@@ -720,7 +720,7 @@ export default function Home() {
         
         {/* Landing Top Header */}
         <header className="w-full flex justify-between items-center z-10 font-mono text-[9px] tracking-[0.25em] text-[#a1a1aa] uppercase">
-          <div className="flex gap-6">
+          <div className="flex gap-4 sm:gap-6">
             <button onClick={() => handleScrollToSection("sonic-register")} className="hover:text-white transition-colors cursor-pointer bg-transparent border-none">ARENA</button>
             <button onClick={() => handleScrollToSection("melakarta-directory")} className="hover:text-white transition-colors cursor-pointer bg-transparent border-none">DIAL</button>
             <button onClick={() => handleScrollToSection("composition-guide")} className="hover:text-white transition-colors cursor-pointer bg-transparent border-none">GUIDE</button>
@@ -763,40 +763,40 @@ export default function Home() {
       </section>
 
       {/* 1. Sticky Navigation Bar */}
-      <nav className="w-full px-12 py-5 flex items-center justify-between border-b border-[#27272a]/20 bg-[#0c0a09]/90 backdrop-blur-md sticky top-0 left-0 z-30 shrink-0 select-none">
+      <nav className="w-full px-4 sm:px-8 md:px-12 py-4 sm:py-5 flex items-center justify-between border-b border-[#27272a]/20 bg-[#0c0a09]/90 backdrop-blur-md sticky top-0 left-0 z-30 shrink-0 select-none">
         <div 
-          className="text-white font-sans text-lg tracking-[0.35em] font-light lowercase cursor-pointer select-none" 
+          className="text-white font-sans text-base sm:text-lg tracking-[0.35em] font-light lowercase cursor-pointer select-none" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           swara
         </div>
       
         {/* Modern text links tabs */}
-        <div className="flex items-center gap-8 text-xs font-bold tracking-widest font-sans">
+        <div className="flex items-center gap-4 sm:gap-8 text-xs font-bold tracking-widest font-sans">
           <button
             onClick={() => handleScrollToSection("sonic-register")}
-            className="text-[#71717a] hover:text-[#e4e4e7] transition-colors cursor-pointer bg-transparent border-none uppercase"
+            className="text-[#71717a] hover:text-[#e4e4e7] transition-colors cursor-pointer bg-transparent border-none uppercase text-[9px] sm:text-xs"
           >
             ARENA
           </button>
           <span className="text-[#27272a] text-[10px]">|</span>
           <button
             onClick={() => handleScrollToSection("melakarta-directory")}
-            className="text-[#71717a] hover:text-[#e4e4e7] transition-colors cursor-pointer bg-transparent border-none uppercase"
+            className="text-[#71717a] hover:text-[#e4e4e7] transition-colors cursor-pointer bg-transparent border-none uppercase text-[9px] sm:text-xs"
           >
             DIAL
           </button>
           <span className="text-[#27272a] text-[10px]">|</span>
           <button
             onClick={() => handleScrollToSection("composition-guide")}
-            className="text-[#71717a] hover:text-[#e4e4e7] transition-colors cursor-pointer bg-transparent border-none uppercase"
+            className="text-[#71717a] hover:text-[#e4e4e7] transition-colors cursor-pointer bg-transparent border-none uppercase text-[9px] sm:text-xs"
           >
             GUIDE
           </button>
         </div>
 
-        {/* Digital clock timer */}
-        <div className="text-xl font-mono tracking-widest text-white font-bold">
+        {/* Digital clock timer — hidden on very small screens */}
+        <div className="hidden xs:block sm:block text-sm sm:text-xl font-mono tracking-widest text-white font-bold">
           {digitalTime}
         </div>
       </nav>
@@ -973,7 +973,7 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Section 2: About / Science of Swaras */}
-      <section id="about-swara" className="w-full py-32 px-12 bg-[#0c0a09] border-t border-[#27272a]/20 flex flex-col items-center justify-center relative select-none">
+      <section id="about-swara" className="w-full py-20 sm:py-32 px-4 sm:px-8 md:px-12 bg-[#0c0a09] border-t border-[#27272a]/20 flex flex-col items-center justify-center relative select-none">
         <div className="max-w-4xl text-center flex flex-col items-center">
           <div className="flex items-center gap-2 mb-6">
             <div className="w-8 h-[1px] bg-[#c5a880]" />
@@ -1037,7 +1037,7 @@ export default function Home() {
       </section>
 
       {/* Section 3: Swara Sonic Register (Teaching Arena) */}
-      <section id="sonic-register" className="w-full py-32 px-12 bg-[#0c0a09] border-t border-[#27272a]/20 relative overflow-hidden flex flex-col items-center">
+      <section id="sonic-register" className="w-full py-20 sm:py-32 px-4 sm:px-8 md:px-12 bg-[#0c0a09] border-t border-[#27272a]/20 relative overflow-hidden flex flex-col items-center">
         {/* Background watermark overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.06] mix-blend-luminosity filter sepia pointer-events-none z-0"
@@ -1258,7 +1258,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: Melakarta Chakra Directory */}
-      <section id="melakarta-directory" className="w-full py-32 px-12 bg-[#0c0a09] border-t border-[#27272a]/20 flex flex-col items-center select-none">
+      <section id="melakarta-directory" className="w-full py-20 sm:py-32 px-4 sm:px-8 md:px-12 bg-[#0c0a09] border-t border-[#27272a]/20 flex flex-col items-center select-none">
         <div className="max-w-6xl w-full">
           <div className="flex items-center gap-2 mb-6 justify-center">
             <div className="w-8 h-[1px] bg-[#c5a880]" />
@@ -1272,7 +1272,7 @@ export default function Home() {
             72 Melakarta Raga Index
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
             {CHAKRA_NAMES.map((chakraName, chakraIdx) => {
               const startNum = chakraIdx * 6 + 1;
               const endNum = startNum + 5;
@@ -1286,7 +1286,7 @@ export default function Home() {
               });
 
               return (
-                <div key={chakraName} className="border border-[#27272a]/40 bg-[#0c0c0e]/40 p-5 flex flex-col hover:border-[#c5a880]/30 transition-all duration-300">
+                <div key={chakraName} className="border border-[#27272a]/40 bg-[#0c0c0e]/40 p-3 sm:p-5 flex flex-col hover:border-[#c5a880]/30 transition-all duration-300">
                   <div className="border-b border-[#27272a]/20 pb-2 mb-4">
                     <span className="text-[8px] text-[#71717a] font-mono tracking-widest uppercase font-bold">CHAKRA {chakraIdx + 1}</span>
                     <h3 className="text-sm font-serif text-[#c5a880] tracking-wider uppercase mt-0.5">{chakraName}</h3>
@@ -1322,7 +1322,7 @@ export default function Home() {
       </section>
 
       {/* Section 5: Rhythmic Metronome & Practice Guide */}
-      <section id="composition-guide" className="w-full py-32 px-12 bg-[#0c0a09] border-t border-[#27272a]/20 flex flex-col items-center select-none">
+      <section id="composition-guide" className="w-full py-20 sm:py-32 px-4 sm:px-8 md:px-12 bg-[#0c0a09] border-t border-[#27272a]/20 flex flex-col items-center select-none">
         <div className="max-w-5xl w-full">
           <div className="flex items-center gap-2 mb-6 justify-center">
             <div className="w-8 h-[1px] bg-[#c5a880]" />
@@ -1337,8 +1337,8 @@ export default function Home() {
           </h2>
 
           {/* Submenu tabs */}
-          <div className="flex justify-center border-b border-[#27272a]/20 mb-12">
-            <div className="flex gap-8 text-[10px] font-mono tracking-widest font-bold uppercase pb-3">
+          <div className="flex justify-center border-b border-[#27272a]/20 mb-8 sm:mb-12 overflow-x-auto hide-scrollbar">
+            <div className="flex gap-4 sm:gap-8 text-[9px] sm:text-[10px] font-mono tracking-widest font-bold uppercase pb-3 min-w-max px-2">
               {[
                 { id: "swaravalis", label: "Swaravali Exercises" },
                 { id: "geethams", label: "Traditional Songs" },
