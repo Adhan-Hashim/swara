@@ -795,8 +795,8 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Digital clock — visible only on sm+ screens */}
-        <div className="hidden sm:block text-sm sm:text-xl font-mono tracking-widest text-white font-bold shrink-0">
+        {/* Digital clock — visible only on sm+ screens, text scales to avoid nav overflow */}
+        <div className="hidden sm:block text-[10px] sm:text-sm md:text-base lg:text-xl font-mono tracking-widest text-white font-bold shrink-0 tabular-nums">
           {digitalTime}
         </div>
       </nav>
@@ -1013,9 +1013,9 @@ export default function Home() {
                   { img: "/fact-tambura.png",     tag: "FUN FACT",       label: "The Eternal Drone",      desc: "The Tambura plays a continuous four-string drone throughout the entire performance — it never plays a melody, only sustaining the tonic Sa." },
                 ]),
               ].map((item, idx) => (
-                <div key={idx} className="flex-shrink-0 w-[340px] flex gap-4 border border-[#27272a]/60 hover:border-[#c5a880]/40 bg-[#0f0d0c] transition-colors duration-500 p-4 group">
+                <div key={idx} className="flex-shrink-0 w-[260px] sm:w-[300px] md:w-[340px] flex gap-3 sm:gap-4 border border-[#27272a]/60 hover:border-[#c5a880]/40 bg-[#0f0d0c] transition-colors duration-500 p-3 sm:p-4 group">
                   {/* Image */}
-                  <div className="w-[110px] h-[110px] flex-shrink-0 overflow-hidden relative">
+                  <div className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[110px] md:h-[110px] flex-shrink-0 overflow-hidden relative">
                     <img
                       src={item.img}
                       alt={item.label}
