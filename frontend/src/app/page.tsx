@@ -991,31 +991,47 @@ export default function Home() {
             In the Carnatic tradition, a <strong className="text-white">Swara</strong> is not merely a static pitch; it is a dynamic node of consciousness, defined by its precise microtonal relation to the fundamental tonic (<strong className="text-white">Adhara Shadjam</strong>). The 12 Swarasthanas emerge from natural harmonic ratios, forming a complex mathematical system of ear training, memory, and sonic geometries that have persisted for centuries.
           </p>
 
-          {/* 4 Square thumbnails row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl mt-4">
-            {[
-              { img: "/tambura-playing.png", label: "Veena & Tambura", desc: "The drone backbone of every Carnatic performance" },
-              { img: "/singer-profile.png", label: "Vocal Practice", desc: "Precise pitch placement and Gamaka articulation" },
-              { img: "/mridangam-drum.png", label: "Mridangam Rhythm", desc: "Rhythmic scaffolding for Taala practice" },
-              { img: "/soundwave-sparks.png", label: "Swara Frequencies", desc: "Microtonal ratios visualised as waveform arcs" }
-            ].map((item, idx) => (
-              <div key={idx} className="group flex flex-col items-center text-center">
-                <div className="w-full aspect-square relative overflow-hidden border border-[#27272a] hover:border-[#c5a880] transition-colors duration-500 bg-[#0c0a09]">
-                  <img 
-                    src={item.img} 
-                    alt={item.label}
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-90 transition-all duration-700 group-hover:scale-105 filter sepia-[0.2] brightness-90 mix-blend-luminosity hover:mix-blend-normal"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-transparent to-transparent opacity-60" />
+          {/* Fun Facts Ticker */}
+          <div className="w-full overflow-hidden mt-4 relative" style={{ maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)" }}>
+            <div className="animate-marquee gap-6">
+              {[
+                ...([
+                  { img: "/fact-melakartas.png",  tag: "DID YOU KNOW?",  label: "72 Parent Scales",        desc: "Carnatic music is built on 72 Melakarta ragas — a complete mathematical system of scales catalogued by the scholar Venkatamakhi in 1620 CE." },
+                  { img: "/fact-thyagaraja.png",  tag: "FUN FACT",       label: "700+ Compositions",      desc: "Saint Thyagaraja composed over 700 kritis in Telugu and Sanskrit — many are still sung in concerts every single day, 200 years later." },
+                  { img: "/fact-mridangam.png",   tag: "DID YOU KNOW?",  label: "The Drum Speaks Sa",     desc: "The Mridangam is custom-tuned for every concert to match the vocalist's tonic (Sa). Its right face is tuned to Sa, and the bass face a fifth below." },
+                  { img: "/fact-microtones.png",  tag: "SCIENCE",        label: "Microtonal Precision",   desc: "Carnatic musicians operate within microtonal divisions smaller than a semitone, using gamakas (ornaments) that bend pitch continuously between notes." },
+                  { img: "/fact-concert.png",     tag: "TRADITION",      label: "3-Hour Concerts",        desc: "A typical Carnatic concert (kutcheri) lasts 3 to 4 hours with a single main artist, exploring just 6–8 ragas in immense depth and improvisation." },
+                  { img: "/fact-tambura.png",     tag: "FUN FACT",       label: "The Eternal Drone",      desc: "The Tambura plays a continuous four-string drone throughout the entire performance — it never plays a melody, only sustaining the tonic Sa." },
+                ]),
+                // Duplicate for seamless loop
+                ...([
+                  { img: "/fact-melakartas.png",  tag: "DID YOU KNOW?",  label: "72 Parent Scales",        desc: "Carnatic music is built on 72 Melakarta ragas — a complete mathematical system of scales catalogued by the scholar Venkatamakhi in 1620 CE." },
+                  { img: "/fact-thyagaraja.png",  tag: "FUN FACT",       label: "700+ Compositions",      desc: "Saint Thyagaraja composed over 700 kritis in Telugu and Sanskrit — many are still sung in concerts every single day, 200 years later." },
+                  { img: "/fact-mridangam.png",   tag: "DID YOU KNOW?",  label: "The Drum Speaks Sa",     desc: "The Mridangam is custom-tuned for every concert to match the vocalist's tonic (Sa). Its right face is tuned to Sa, and the bass face a fifth below." },
+                  { img: "/fact-microtones.png",  tag: "SCIENCE",        label: "Microtonal Precision",   desc: "Carnatic musicians operate within microtonal divisions smaller than a semitone, using gamakas (ornaments) that bend pitch continuously between notes." },
+                  { img: "/fact-concert.png",     tag: "TRADITION",      label: "3-Hour Concerts",        desc: "A typical Carnatic concert (kutcheri) lasts 3 to 4 hours with a single main artist, exploring just 6–8 ragas in immense depth and improvisation." },
+                  { img: "/fact-tambura.png",     tag: "FUN FACT",       label: "The Eternal Drone",      desc: "The Tambura plays a continuous four-string drone throughout the entire performance — it never plays a melody, only sustaining the tonic Sa." },
+                ]),
+              ].map((item, idx) => (
+                <div key={idx} className="flex-shrink-0 w-[340px] flex gap-4 border border-[#27272a]/60 hover:border-[#c5a880]/40 bg-[#0f0d0c] transition-colors duration-500 p-4 group">
+                  {/* Image */}
+                  <div className="w-[110px] h-[110px] flex-shrink-0 overflow-hidden relative">
+                    <img
+                      src={item.img}
+                      alt={item.label}
+                      className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500 filter grayscale group-hover:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0f0d0c]/40" />
+                  </div>
+                  {/* Text */}
+                  <div className="flex flex-col justify-center gap-1.5 min-w-0">
+                    <span className="text-[7.5px] text-[#c5a880] font-mono tracking-[0.3em] uppercase font-bold">{item.tag}</span>
+                    <h4 className="text-[11px] text-white font-serif tracking-wide leading-tight">{item.label}</h4>
+                    <p className="text-[9px] text-[#52525b] font-sans leading-relaxed normal-case line-clamp-3">{item.desc}</p>
+                  </div>
                 </div>
-                <h4 className="text-[10px] text-white tracking-[0.2em] uppercase font-mono font-bold mt-4 mb-1">
-                  {item.label}
-                </h4>
-                <p className="text-[9px] text-[#71717a] font-sans tracking-wide uppercase">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -1736,81 +1752,87 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="w-full border-t border-[#27272a]/30 bg-[#0c0a09] py-16 px-12 select-none">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12">
+      {/* Footer — redesigned */}
+      <footer className="w-full bg-[#0c0a09] select-none overflow-hidden">
 
-          {/* Brand column */}
-          <div className="flex flex-col gap-4 max-w-xs">
-            <div
-              className="text-white font-sans text-2xl tracking-[0.4em] font-light lowercase cursor-pointer"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              swara
-            </div>
-            <p className="text-[11px] text-[#52525b] font-sans leading-relaxed tracking-wide normal-case">
-              A Carnatic ear-training system built on the mathematics of the 72 Melakarta Raga system. Practice intervals, rhythmic cycles, and classical compositions in your browser.
-            </p>
-            <div className="flex items-center gap-2 mt-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#c5a880] animate-pulse" />
-              <span className="text-[9px] text-[#52525b] font-mono tracking-widest uppercase">System Online</span>
-            </div>
+        {/* Top gold hairline */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#c5a880]/40 to-transparent" />
+
+        {/* Central wordmark block */}
+        <div className="max-w-6xl mx-auto px-8 pt-20 pb-8 flex flex-col items-center text-center">
+
+
+          {/* Giant wordmark */}
+          <div
+            className="font-serif font-light leading-none tracking-[0.15em] text-white/10 hover:text-white/20 transition-colors duration-700 cursor-pointer mb-2"
+            style={{ fontSize: "clamp(4rem, 14vw, 11rem)" }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            title="Back to top"
+          >
+            swara
           </div>
 
-          {/* Nav links */}
-          <div className="flex flex-col gap-3">
-            <span className="text-[9px] text-[#c5a880] font-mono tracking-[0.3em] uppercase font-bold mb-1">Navigate</span>
+          {/* Tagline */}
+          <p className="text-[10px] text-[#52525b] font-mono tracking-[0.35em] uppercase mt-4 mb-14">
+            Carnatic Music &nbsp;·&nbsp; 72 Ragas &nbsp;·&nbsp; Web Audio
+          </p>
+
+          {/* Horizontal nav */}
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 mb-16">
             {[
+              { label: "About", id: "about-swara" },
               { label: "Sonic Register", id: "sonic-register" },
               { label: "Melakarta Index", id: "melakarta-directory" },
-              { label: "Practice Guide", id: "composition-guide" },
-              { label: "About Swara", id: "about-swara" },
-            ].map(link => (
-              <button
-                key={link.id}
-                onClick={() => document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" })}
-                className="text-[10px] text-[#71717a] hover:text-[#c5a880] font-mono tracking-widest uppercase transition-colors cursor-pointer bg-transparent border-none text-left"
-              >
-                {link.label}
-              </button>
+              { label: "Practice", id: "composition-guide" },
+            ].map((link, i, arr) => (
+              <span key={link.id} className="flex items-center gap-10">
+                <button
+                  onClick={() => document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" })}
+                  className="text-[9.5px] font-mono tracking-[0.3em] uppercase text-[#52525b] hover:text-[#c5a880] transition-colors duration-300 cursor-pointer bg-transparent border-none"
+                >
+                  {link.label}
+                </button>
+                {i < arr.length - 1 && (
+                  <span className="text-[#27272a] text-[8px]">&bull;</span>
+                )}
+              </span>
             ))}
           </div>
 
-          {/* Scale info */}
-          <div className="flex flex-col gap-3">
-            <span className="text-[9px] text-[#c5a880] font-mono tracking-[0.3em] uppercase font-bold mb-1">Active Scale</span>
-            {activeRaga ? (
-              <>
-                <div className="flex flex-col">
-                  <span className="text-base font-serif text-white tracking-widest">{activeRaga.name}</span>
-                  <span className="text-[9px] text-[#52525b] font-mono tracking-wider uppercase mt-1">{activeRaga.type}</span>
-                </div>
-                <div className="flex gap-1.5 flex-wrap mt-2 max-w-[200px]">
-                  {activeRaga.arohanam.map((note, i) => (
-                    <span key={i} className="text-[9px] font-mono text-[#c5a880] border border-[#27272a] px-1.5 py-0.5">{note}</span>
-                  ))}
-                </div>
-              </>
-            ) : (
-              <span className="text-[10px] text-[#52525b] font-mono tracking-widest">No scale selected</span>
-            )}
+          {/* Active raga strip */}
+          {activeRaga && (
+            <div className="flex items-center gap-3 mb-10 px-5 py-2.5 border border-[#27272a]/40">
+              <div className="w-1 h-1 rounded-full bg-[#c5a880] animate-pulse" />
+              <span className="text-[9px] font-mono text-[#52525b] tracking-widest uppercase">Active</span>
+              <span className="text-[9px] font-serif text-[#c5a880] tracking-wider">{activeRaga.name}</span>
+              <span className="text-[#27272a]">&middot;</span>
+              {activeRaga.arohanam.slice(0, 5).map((n, i) => (
+                <span key={i} className="text-[8px] font-mono text-[#52525b]">{n}</span>
+              ))}
+              {activeRaga.arohanam.length > 5 && <span className="text-[8px] text-[#3f3f46] font-mono">+{activeRaga.arohanam.length - 5}</span>}
+            </div>
+          )}
+
+          {/* Bottom divider */}
+          <div className="w-full h-px bg-[#1c1917] mb-6" />
+
+          {/* Copyright row */}
+          <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-3">
+            <span className="text-[8.5px] text-[#3f3f46] font-mono tracking-[0.25em] uppercase">
+              &copy; {new Date().getFullYear()} Swara
+            </span>
+            <a
+              href="https://github.com/Adhan-Hashim/swara"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[8.5px] text-[#3f3f46] hover:text-[#c5a880] font-mono tracking-[0.25em] uppercase transition-colors duration-300"
+            >
+              github.com/Adhan-Hashim/swara &#8599;
+            </a>
           </div>
 
         </div>
 
-        {/* Bottom bar */}
-        <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-[#27272a]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-[9px] text-[#3f3f46] font-mono tracking-widest uppercase">
-            © {new Date().getFullYear()} Swara — Carnatic Ear Training System
-          </span>
-          <div className="flex gap-6 text-[9px] text-[#3f3f46] font-mono tracking-widest uppercase">
-            <span>72 Melakarta Ragas</span>
-            <span className="text-[#27272a]">·</span>
-            <span>12 Chakras</span>
-            <span className="text-[#27272a]">·</span>
-            <span>Web Audio API</span>
-          </div>
-        </div>
       </footer>
 
     </main>
