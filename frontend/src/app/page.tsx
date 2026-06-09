@@ -704,7 +704,7 @@ export default function Home() {
     : null;
 
   return (
-    <main className="min-h-screen bg-[#0c0a09] bg-grid text-[#e4e4e7] flex flex-col font-sans uppercase relative selection:bg-[#c5a880]/20 scroll-smooth">
+    <main className="min-h-screen bg-[#0c0a09] bg-grid text-[#e4e4e7] flex flex-col font-sans uppercase relative selection:bg-[#c5a880]/20 scroll-smooth overflow-x-hidden">
       
       {/* 0. Minimal Atmospheric Landing Screen */}
       <section className="w-full h-screen relative flex flex-col justify-between items-center py-10 px-4 sm:px-8 md:px-12 overflow-hidden bg-[#0c0a09] select-none">
@@ -737,7 +737,7 @@ export default function Home() {
 
         {/* Center content */}
         <div className="flex flex-col items-center justify-center text-center z-10 max-w-lg">
-          <h1 className="text-7xl sm:text-8xl md:text-9xl font-serif font-light tracking-[0.35em] text-white leading-none mb-8">
+          <h1 className="text-6xl sm:text-8xl md:text-9xl font-serif font-light tracking-[0.35em] text-white leading-none mb-8">
             SWARA
           </h1>
           
@@ -763,16 +763,16 @@ export default function Home() {
       </section>
 
       {/* 1. Sticky Navigation Bar */}
-      <nav className="w-full px-4 sm:px-8 md:px-12 py-4 sm:py-5 flex items-center justify-between border-b border-[#27272a]/20 bg-[#0c0a09]/90 backdrop-blur-md sticky top-0 left-0 z-30 shrink-0 select-none">
+      <nav className="w-full px-4 sm:px-8 md:px-12 py-4 sm:py-5 flex items-center justify-between gap-2 border-b border-[#27272a]/20 bg-[#0c0a09]/90 backdrop-blur-md sticky top-0 left-0 z-30 shrink-0 select-none">
         <div 
-          className="text-white font-sans text-base sm:text-lg tracking-[0.35em] font-light lowercase cursor-pointer select-none" 
+          className="text-white font-sans text-base sm:text-lg tracking-[0.35em] font-light lowercase cursor-pointer select-none shrink-0" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           swara
         </div>
       
         {/* Modern text links tabs */}
-        <div className="flex items-center gap-4 sm:gap-8 text-xs font-bold tracking-widest font-sans">
+        <div className="flex items-center gap-3 sm:gap-8 text-xs font-bold tracking-widest font-sans">
           <button
             onClick={() => handleScrollToSection("sonic-register")}
             className="text-[#71717a] hover:text-[#e4e4e7] transition-colors cursor-pointer bg-transparent border-none uppercase text-[9px] sm:text-xs"
@@ -795,8 +795,8 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Digital clock timer — hidden on very small screens */}
-        <div className="hidden xs:block sm:block text-sm sm:text-xl font-mono tracking-widest text-white font-bold">
+        {/* Digital clock — visible only on sm+ screens */}
+        <div className="hidden sm:block text-sm sm:text-xl font-mono tracking-widest text-white font-bold shrink-0">
           {digitalTime}
         </div>
       </nav>
@@ -983,7 +983,7 @@ export default function Home() {
             <div className="w-8 h-[1px] bg-[#c5a880]" />
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-light tracking-wide text-white mb-8 leading-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light tracking-wide text-white mb-8 leading-tight">
             Acoustic Geometry of Sound
           </h2>
 
